@@ -10,7 +10,10 @@ public class LoopFun
        * @return the factorial of the number
        */
       public Integer factorial(Integer number){
-          return null;
+          int loop1 = 1;
+          for (int i = 1; i<= number; i++) {;
+          loop1 *= i;}
+          return loop1;
       }
 
       /**
@@ -21,9 +24,19 @@ public class LoopFun
        * @return Upper case string of the first letter of each word
        */
       public String acronym(String phrase) {
-          return null;
-      }
 
+        String result = phrase.substring(0, 1); 
+        int pos = phrase.indexOf(' '); 
+        while (pos != -1) {
+            if (phrase.charAt(pos + 1) != ' ') { 
+                result += phrase.substring(pos + 1, pos + 2); 
+                pos = phrase.indexOf(' ', pos + 1); //Finds the next space sign
+            }
+        } 
+    return result.toUpperCase();
+              
+
+     }
       /**
        * To prevent anyone from reading our messages, we can encrypt it so it will only be readable by its
        * intended audience. This method encrypt the message by shifting the letter by 3 characters. If the character is
@@ -36,7 +49,19 @@ public class LoopFun
        * @param word
        * @return the encrypted string by shifting each character by three character
        */
+      
       public String encrypt(String word) {
-          return null;
+          char[] chencrypt = new char[word.length()];
+          for(int i = 0; i < word.length(); i++) {
+              if (word.charAt(i) == 'x') {
+                 chencrypt[i] = 'a';}
+                  else if (word.charAt(i) == 'y') {
+                    chencrypt[i] = 'b';}
+                     else if (word.charAt(i) == 'z') {
+                         chencrypt[i] = 'c';}
+                           else chencrypt[i] = (char)(word.charAt(i) + 3);}
+          String answer = new String(chencrypt);
+          return answer;
+          
       }
 }
